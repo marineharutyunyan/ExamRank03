@@ -6,7 +6,7 @@
 /*   By: maharuty <maharuty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:08:26 by maharuty          #+#    #+#             */
-/*   Updated: 2022/11/22 13:12:01 by maharuty         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:22:47 by maharuty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+	{
+		i = write(1, "(null)", 6);
+		return (i);
+	}
 	if (!str)
 		return (i);
 	while (str[i] != '\0')
@@ -100,8 +105,9 @@ int	ft_printf(const	char	*str, ...)
 
 int	main(void)
 {
-	ft_printf("%s\n", "toto"); //toto$
+	ft_printf("%d", ft_printf("%s", ""));
+	/*ft_printf("%s\n", "toto"); //toto$
 	ft_printf("Magic %s is %d", "number", 42); //Magic number is 42%
-	ft_printf("Hexadecimal for %dis %x\n", 42, 42); //Hexadecimal for 42 is 2a$
+	ft_printf("Hexadecimal for %dis %x\n", 42, 42); //Hexadecimal for 42 is 2a$*/
 	return (0);
 }
